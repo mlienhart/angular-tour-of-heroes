@@ -18,6 +18,8 @@ export class HeroService {
         .map(x => <Hero>
           { id: x.id, name: x.name }
         )
+        .sort((a, b) => a.name < b.name ? -1 : 1)
+        .filter(x => x.id > 12)
       ));
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
