@@ -18,7 +18,9 @@ export class HeroService {
         .map(x => <Hero>
           { id: x.id * 100, name: x.name.toLocaleUpperCase() }
         )
-        .filter(x => x.id > 1300)));
+        .filter(x => x.id > 1300)
+        .sort((a, b) => a.id > b.id ? -1 : 1)
+      ));
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
