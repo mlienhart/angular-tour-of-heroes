@@ -16,13 +16,17 @@ export class HeroService {
     const heroes = of(HEROES)
       .pipe(map(data => data
         .map(x => <Hero>
-          { id: x.id * 100, name: x.name.toLocaleUpperCase() }
+          { id: x.id, name: x.name }
         )
-        .filter(x => x.id > 1300)
-        .sort((a, b) => a.id > b.id ? -1 : 1)
       ));
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
+  }
+
+  getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
   }
 
 }
