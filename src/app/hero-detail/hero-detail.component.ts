@@ -12,6 +12,7 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
+  Code = Code;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,4 +33,17 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+}
+
+export enum Code {
+  Zero = "0A",
+  One = "1B",
+  Two = "2C",
+  Three = "3D",
+  Four = "4E",
+  Five = "5F",
+  Six = "6G",
+  Seven = "7H",
+  Eight = "8I",
+  Nine = "9J"
 }
