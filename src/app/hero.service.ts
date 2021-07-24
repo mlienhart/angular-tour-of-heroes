@@ -19,7 +19,7 @@ export class HeroService {
       const heroes = of(HEROES)
         .pipe(map(data => data
           .map(x => <Hero>
-            { id: x.id, name: x.name }
+            { id: x.id, name: x.name, code: x.code }
           )
           .sort((a, b) => a.name < b.name ? -1 : 1)
           .filter(x => x.id > 12)
